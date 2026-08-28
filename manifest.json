@@ -1,0 +1,16 @@
+{
+    "name": "Storyteller",
+    "short_name": "Storyteller",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f5f1ea",
+    "theme_color": "#f5f1ea",
+    "description": "A quiet little place for stories.",
+    "icons": [
+        {
+            "src": "/static/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
