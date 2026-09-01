@@ -51,6 +51,10 @@
         }
 
 
+        /* =====================================================
+           ORIGINAL STORYTELLER BACKGROUND
+        ===================================================== */
+
         body {
 
             background-image:
@@ -70,9 +74,460 @@
         }
 
 
-        /* =========================================
-           APP
-        ========================================= */
+        /* =====================================================
+           STARTUP / LOADING SCREEN
+        ===================================================== */
+
+        #startup-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 99999;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 42%,
+                    rgba(255, 224, 235, 0.48),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 15% 90%,
+                    rgba(214, 204, 249, 0.38),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 88% 85%,
+                    rgba(255, 220, 202, 0.40),
+                    transparent 35%
+                ),
+                #fcfbfd;
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transition:
+                opacity 0.75s ease,
+                visibility 0.75s ease;
+        }
+
+
+        #startup-screen.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+        }
+
+
+        /* Soft animated glow */
+
+        .startup-glow {
+
+            position: absolute;
+
+            width: 340px;
+
+            height: 340px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(205, 190, 248, 0.25),
+                    transparent 68%
+                );
+
+            filter: blur(10px);
+
+            animation:
+                softGlow 4s ease-in-out infinite;
+        }
+
+
+        @keyframes softGlow {
+
+            0%,
+            100% {
+
+                transform: scale(0.92);
+
+                opacity: 0.55;
+            }
+
+            50% {
+
+                transform: scale(1.08);
+
+                opacity: 0.95;
+            }
+        }
+
+
+        /* Bottom subtle curves */
+
+        .startup-wave {
+
+            position: absolute;
+
+            bottom: -120px;
+
+            width: 720px;
+
+            height: 240px;
+
+            border-radius: 50%;
+
+            border-top:
+                1px solid
+                rgba(207, 196, 240, 0.35);
+
+            opacity: 0.8;
+        }
+
+
+        .startup-wave.one {
+
+            left: -260px;
+
+            transform: rotate(-7deg);
+        }
+
+
+        .startup-wave.two {
+
+            right: -270px;
+
+            transform: rotate(8deg);
+        }
+
+
+        /* Loading content */
+
+        .startup-content {
+
+            position: relative;
+
+            z-index: 5;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            animation:
+                startupAppear 0.9s ease both;
+        }
+
+
+        @keyframes startupAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px)
+                    scale(0.97);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           MINIMAL BOOK SYMBOL
+        ===================================================== */
+
+        .book {
+
+            position: relative;
+
+            width: 92px;
+
+            height: 68px;
+
+            margin-bottom: 28px;
+
+            animation:
+                bookFloat 3.2s ease-in-out infinite;
+        }
+
+
+        @keyframes bookFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-6px);
+            }
+        }
+
+
+        .book-left,
+        .book-right {
+
+            position: absolute;
+
+            top: 5px;
+
+            width: 43px;
+
+            height: 55px;
+
+            background:
+                rgba(255, 255, 255, 0.30);
+
+            box-shadow:
+                0 5px 18px
+                rgba(194, 167, 238, 0.12);
+        }
+
+
+        .book-left {
+
+            left: 3px;
+
+            border:
+                2px solid
+                #c5b4f5;
+
+            border-right:
+                1px solid
+                #d7c7f7;
+
+            border-radius:
+                7px 2px 3px 10px;
+
+            transform:
+                skewY(7deg);
+        }
+
+
+        .book-right {
+
+            right: 3px;
+
+            border:
+                2px solid
+                #e5b4d5;
+
+            border-left:
+                1px solid
+                #edc4dc;
+
+            border-radius:
+                2px 7px 10px 3px;
+
+            transform:
+                skewY(-7deg);
+        }
+
+
+        .book-center {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 6px;
+
+            width: 2px;
+
+            height: 57px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #c8b5f4,
+                    #e8b7d7
+                );
+
+            border-radius: 4px;
+        }
+
+
+        .book-base {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom: 3px;
+
+            width: 54px;
+
+            height: 8px;
+
+            transform:
+                translateX(-50%);
+
+            border-bottom:
+                2px solid
+                #d0baf1;
+
+            border-radius: 50%;
+        }
+
+
+        /* =====================================================
+           SMALL SPARKLES
+        ===================================================== */
+
+        .sparkle {
+
+            position: absolute;
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 2px;
+
+            transform: rotate(45deg);
+
+            animation:
+                sparklePulse 2.2s ease-in-out infinite;
+        }
+
+
+        .sparkle.one {
+
+            top: -7px;
+
+            left: 13px;
+
+            background: #c8b5f4;
+        }
+
+
+        .sparkle.two {
+
+            top: -18px;
+
+            left: 43px;
+
+            width: 10px;
+
+            height: 10px;
+
+            background: #efb7d5;
+
+            animation-delay:
+                0.35s;
+        }
+
+
+        .sparkle.three {
+
+            top: 1px;
+
+            right: 11px;
+
+            background: #f4c3ae;
+
+            animation-delay:
+                0.7s;
+        }
+
+
+        @keyframes sparklePulse {
+
+            0%,
+            100% {
+
+                opacity: 0.35;
+
+                transform:
+                    rotate(45deg)
+                    scale(0.75);
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    rotate(45deg)
+                    scale(1.15);
+            }
+        }
+
+
+        /* =====================================================
+           GETTING THINGS READY
+        ===================================================== */
+
+        .startup-text {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 400;
+
+            letter-spacing: 0.4px;
+
+            color: #9d91d8;
+
+            animation:
+                textBreath 2.4s ease-in-out infinite;
+        }
+
+
+        @keyframes textBreath {
+
+            0%,
+            100% {
+
+                opacity: 0.50;
+            }
+
+            50% {
+
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           MAIN APP
+        ===================================================== */
 
         .app {
 
@@ -90,21 +545,26 @@
         }
 
 
-        /* =========================================
-           NEW STORY
-        ========================================= */
+        /* =====================================================
+           NEW STORY BUTTON
+        ===================================================== */
 
         .new-story {
 
             position: absolute;
 
-            top: max(18px, env(safe-area-inset-top));
+            top:
+                max(
+                    18px,
+                    env(safe-area-inset-top)
+                );
 
             right: 18px;
 
             z-index: 20;
 
-            padding: 9px 16px;
+            padding:
+                9px 16px;
 
             border-radius: 25px;
 
@@ -115,23 +575,40 @@
             background:
                 rgba(255, 255, 255, 0.22);
 
-            backdrop-filter: blur(7px);
+            backdrop-filter:
+                blur(7px);
 
-            -webkit-backdrop-filter: blur(7px);
+            -webkit-backdrop-filter:
+                blur(7px);
 
             color: #4d473f;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
 
             font-size: 13px;
 
             cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
 
-        /* =========================================
+        .new-story:active {
+
+            transform: scale(0.96);
+
+            background:
+                rgba(255, 255, 255, 0.40);
+        }
+
+
+        /* =====================================================
            CHAT
-        ========================================= */
+        ===================================================== */
 
         .chat {
 
@@ -169,9 +646,9 @@
         }
 
 
-        /* =========================================
+        /* =====================================================
            WELCOME
-        ========================================= */
+        ===================================================== */
 
         .welcome {
 
@@ -194,11 +671,12 @@
 
         .welcome h2 {
 
-            font-size: clamp(
-                32px,
-                8vw,
-                42px
-            );
+            font-size:
+                clamp(
+                    32px,
+                    8vw,
+                    42px
+                );
 
             font-weight: 400;
 
@@ -210,9 +688,9 @@
         }
 
 
-        /* =========================================
+        /* =====================================================
            MESSAGES
-        ========================================= */
+        ===================================================== */
 
         .message {
 
@@ -232,14 +710,14 @@
 
         .bubble {
 
-            max-width: min(
-                720px,
-                82%
-            );
+            max-width:
+                min(
+                    720px,
+                    82%
+                );
 
             padding:
-                11px
-                15px;
+                11px 15px;
 
             border-radius: 15px;
 
@@ -260,7 +738,12 @@
         .message.bot .bubble {
 
             background:
-                rgba(250, 247, 241, 0.76);
+                rgba(
+                    250,
+                    247,
+                    241,
+                    0.76
+                );
 
             border:
                 1px solid
@@ -268,16 +751,23 @@
 
             border-bottom-left-radius: 4px;
 
-            backdrop-filter: blur(7px);
+            backdrop-filter:
+                blur(7px);
 
-            -webkit-backdrop-filter: blur(7px);
+            -webkit-backdrop-filter:
+                blur(7px);
         }
 
 
         .message.user .bubble {
 
             background:
-                rgba(35, 32, 28, 0.82);
+                rgba(
+                    35,
+                    32,
+                    28,
+                    0.82
+                );
 
             color: #f8f5ef;
 
@@ -285,30 +775,37 @@
         }
 
 
-        /* =========================================
-           TYPING
-        ========================================= */
+        /* =====================================================
+           AI TYPING
+        ===================================================== */
 
         .typing {
 
             display: none;
 
-            justify-content: flex-start;
+            justify-content:
+                flex-start;
         }
 
 
         .typing .bubble {
 
             padding:
-                14px
-                17px;
+                14px 17px;
 
             background:
-                rgba(250, 247, 241, 0.76);
+                rgba(
+                    250,
+                    247,
+                    241,
+                    0.76
+                );
 
-            backdrop-filter: blur(7px);
+            backdrop-filter:
+                blur(7px);
 
-            -webkit-backdrop-filter: blur(7px);
+            -webkit-backdrop-filter:
+                blur(7px);
         }
 
 
@@ -337,13 +834,15 @@
 
         .dots span:nth-child(2) {
 
-            animation-delay: 0.2s;
+            animation-delay:
+                0.2s;
         }
 
 
         .dots span:nth-child(3) {
 
-            animation-delay: 0.4s;
+            animation-delay:
+                0.4s;
         }
 
 
@@ -352,18 +851,20 @@
             0%,
             60%,
             100% {
+
                 opacity: 0.25;
             }
 
             30% {
+
                 opacity: 1;
             }
         }
 
 
-        /* =========================================
-           INPUT AREA
-        ========================================= */
+        /* =====================================================
+           INPUT
+        ===================================================== */
 
         .input-area {
 
@@ -374,7 +875,10 @@
             padding:
                 8px
                 14px
-                max(12px, env(safe-area-inset-bottom));
+                max(
+                    12px,
+                    env(safe-area-inset-bottom)
+                );
 
             z-index: 20;
         }
@@ -383,7 +887,10 @@
         .input-box {
 
             width:
-                min(700px, 100%);
+                min(
+                    700px,
+                    100%
+                );
 
             margin: auto;
 
@@ -402,15 +909,22 @@
             border-radius: 28px;
 
             background:
-                rgba(250, 247, 241, 0.68);
+                rgba(
+                    250,
+                    247,
+                    241,
+                    0.68
+                );
 
             border:
                 1px solid
                 rgba(100, 90, 80, 0.20);
 
-            backdrop-filter: blur(10px);
+            backdrop-filter:
+                blur(10px);
 
-            -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter:
+                blur(10px);
 
             box-shadow:
                 0 4px 20px
@@ -418,9 +932,9 @@
         }
 
 
-        /* =========================================
-           TEXT INPUT
-        ========================================= */
+        /* =====================================================
+           TEXTAREA
+        ===================================================== */
 
         textarea {
 
@@ -436,7 +950,9 @@
 
             background: transparent;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
 
             font-size: 15px;
 
@@ -456,9 +972,9 @@
         }
 
 
-        /* =========================================
+        /* =====================================================
            SEND
-        ========================================= */
+        ===================================================== */
 
         .send {
 
@@ -473,7 +989,12 @@
             border-radius: 50%;
 
             background:
-                rgba(38, 34, 29, 0.90);
+                rgba(
+                    38,
+                    34,
+                    29,
+                    0.90
+                );
 
             color: white;
 
@@ -491,9 +1012,9 @@
         }
 
 
-        /* =========================================
+        /* =====================================================
            MOBILE
-        ========================================= */
+        ===================================================== */
 
         @media (max-width: 600px) {
 
@@ -519,13 +1040,15 @@
             .new-story {
 
                 top:
-                    max(12px, env(safe-area-inset-top));
+                    max(
+                        12px,
+                        env(safe-area-inset-top)
+                    );
 
                 right: 12px;
 
                 padding:
-                    8px
-                    13px;
+                    8px 13px;
 
                 font-size: 12px;
             }
@@ -540,8 +1063,7 @@
                 line-height: 1.5;
 
                 padding:
-                    10px
-                    13px;
+                    10px 13px;
             }
 
 
@@ -570,8 +1092,19 @@
                 font-size: 15px;
             }
 
-        }
 
+            .startup-text {
+
+                font-size: 14px;
+            }
+
+
+            .book {
+
+                transform: scale(0.90);
+            }
+
+        }
 
     </style>
 
@@ -580,6 +1113,56 @@
 
 <body>
 
+
+<!-- =====================================================
+     STARTUP SCREEN
+===================================================== -->
+
+<div id="startup-screen">
+
+    <div class="startup-glow"></div>
+
+    <div class="startup-wave one"></div>
+
+    <div class="startup-wave two"></div>
+
+
+    <div class="startup-content">
+
+
+        <div class="book">
+
+            <div class="sparkle one"></div>
+
+            <div class="sparkle two"></div>
+
+            <div class="sparkle three"></div>
+
+
+            <div class="book-left"></div>
+
+            <div class="book-right"></div>
+
+            <div class="book-center"></div>
+
+            <div class="book-base"></div>
+
+        </div>
+
+
+        <div class="startup-text">
+            getting things ready
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN APP
+===================================================== -->
 
 <div class="app">
 
@@ -620,7 +1203,9 @@
                 <div class="dots">
 
                     <span></span>
+
                     <span></span>
+
                     <span></span>
 
                 </div>
@@ -665,6 +1250,10 @@
 <script>
 
 
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
 const messageInput =
     document.getElementById("message");
 
@@ -681,10 +1270,66 @@ const sendButton =
     document.getElementById("send");
 
 
+/* =====================================================
+   STARTUP SCREEN
+===================================================== */
 
-/* =========================================
+window.addEventListener(
+    "load",
+    function() {
+
+        /*
+         * Keep the custom loading screen visible
+         * briefly after the page is ready.
+         */
+
+        setTimeout(
+            function() {
+
+                const startupScreen =
+                    document.getElementById(
+                        "startup-screen"
+                    );
+
+                if (!startupScreen) {
+                    return;
+                }
+
+
+                startupScreen.classList.add(
+                    "hide"
+                );
+
+
+                setTimeout(
+                    function() {
+
+                        if (
+                            startupScreen &&
+                            startupScreen.parentNode
+                        ) {
+
+                            startupScreen.remove();
+
+                        }
+
+                        messageInput.focus();
+
+                    },
+                    800
+                );
+
+            },
+            1200
+        );
+
+    }
+);
+
+
+/* =====================================================
    SEND MESSAGE
-========================================= */
+===================================================== */
 
 async function sendMessage() {
 
@@ -813,10 +1458,9 @@ async function sendMessage() {
 }
 
 
-
-/* =========================================
+/* =====================================================
    ADD MESSAGE
-========================================= */
+===================================================== */
 
 function addMessage(
     text,
@@ -863,10 +1507,9 @@ function addMessage(
 }
 
 
-
-/* =========================================
+/* =====================================================
    ENTER TO SEND
-========================================= */
+===================================================== */
 
 messageInput.addEventListener(
     "keydown",
@@ -887,10 +1530,9 @@ messageInput.addEventListener(
 );
 
 
-
-/* =========================================
+/* =====================================================
    AUTO RESIZE
-========================================= */
+===================================================== */
 
 messageInput.addEventListener(
     "input",
@@ -909,10 +1551,9 @@ messageInput.addEventListener(
 );
 
 
-
-/* =========================================
+/* =====================================================
    SCROLL
-========================================= */
+===================================================== */
 
 function scrollToBottom() {
 
@@ -928,10 +1569,9 @@ function scrollToBottom() {
 }
 
 
-
-/* =========================================
+/* =====================================================
    NEW STORY
-========================================= */
+===================================================== */
 
 async function newChat() {
 
@@ -992,15 +1632,12 @@ async function newChat() {
 }
 
 
-messageInput.focus();
-
-
 </script>
 
 
-<!-- =========================================
+<!-- =====================================================
      PWA SERVICE WORKER
-========================================= -->
+===================================================== -->
 
 <script>
 
